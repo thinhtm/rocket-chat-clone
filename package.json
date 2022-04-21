@@ -20,6 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "server": "json-server ./src/api/db.json -m ./node_modules/json-server-auth",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -43,6 +44,9 @@
   },
   "devDependencies": {
     "json-server": "^0.17.0",
-    "json-server-auth": "^2.1.0"
+    "json-server-auth": "^2.1.0",
+    "sass": "^1.50.1",
+    "sass-loader": "^12.6.0",
+    "webpack": "^5.72.0"
   }
 }
