@@ -1,18 +1,35 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router'
+
+import AuthAPI from '../api/auth.api'
+import { updateAuthState } from '../features/auth/authSlice'
 
 export const Avatar = () => {
   const [isDropdownShowed, setIsDropdownShowed] = useState(false)
 
-  const toggleDropdownList = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const toggleDropdown = () => {
     setIsDropdownShowed(!isDropdownShowed)
   }
 
+  const goToProfile = () => {
+    navigate('/profile')
+  }
+
+  const handleSignOut = () => {
+    AuthAPI.signOut()
+    dispatch(updateAuthState(false))
+    navigate('/signin')
+  }
+
   return (
-    <div className="avatar-container">
+    <div className="avatar">
       <button
-        className="avatar btn p-0"
-        onClick={toggleDropdownList}
+        className="avatar-btn btn p-0"
+        onClick={toggleDropdown}
       >
         <img
           className="img-fluid rounded"
@@ -22,13 +39,19 @@ export const Avatar = () => {
       </button>
 
       {
-        isDropdownShowed ? 
+        isDropdownShowed ?
         <div className="dropdown-list mt-2">
-          <button className="w-100 py-2 px-3">
+          <button
+            className="w-100 py-2 px-3"
+            onClick={goToProfile}
+          >
             Profile
           </button>
-          <button className="w-100 py-2 px-3">
-            Log out
+          <button
+            className="w-100 py-2 px-3"
+            onClick={handleSignOut}
+          >
+            Sign Out
           </button>
         </div>
         :

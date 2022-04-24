@@ -2,14 +2,14 @@
   border: 1px solid red;
 }
 
-.login-card {
-  width: 30%;
+a {
+  text-decoration: none;
 }
 
-.avatar-container {
+.avatar {
   position: relative;
 
-  .avatar {
+  .avatar-btn {
     width: 35px;
     height: 35px;
   }
@@ -32,27 +32,28 @@
   }
 }
 
-.group-card {
-  &:hover {
-    cursor: pointer;
-    background-color: #f8f9fa;
+.sign-in, .sign-up, .not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.not-found {
+  flex-direction: column;
+
+  .err-code {
+    font-size: 60px;
   }
 }
 
-.chat-container {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #dee2e6;
-  border-radius: 3px;
-  min-height: 95vh;
+.profile {
+  position: relative;
+  padding: 100px 300px;
 
-  .form-control {
-    margin-top: auto;
-
-    &:focus {
-      outline: none;
-      box-shadow: none;
-      border: 1px solid #dee2e6;
-    }
+  .btn-close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
   }
 }

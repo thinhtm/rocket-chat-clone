@@ -1,22 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
+import TokenService from '../../common/token.service'
 
-const access_token = localStorage.getItem('access_token')
+const token = TokenService.getToken()
 
 const initialState = {
-  accessToken: access_token ? access_token : ''
+  isAuthenticated: token ? true : false,
 }
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    updateAccessToken(state, action) {
-      const { accessToken } = action.payload
-      state.accessToken = accessToken
+    updateAuthState(state, action) {
+      state.isAuthenticated = action.payload
     }
   }
 })
 
-export const { updateAccessToken } = authSlice.actions
+export const { updateAuthState } = authSlice.actions
 
 export default authSlice.reducer

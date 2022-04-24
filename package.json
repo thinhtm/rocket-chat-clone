@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "server": "json-server ./src/api/db.json -m ./node_modules/json-server-auth",
+    "server": "json-server ./src/database/db.json -m ./node_modules/json-server-auth",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

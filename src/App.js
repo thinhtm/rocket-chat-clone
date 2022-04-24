@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   BrowserRouter,
   Routes,
@@ -6,38 +7,43 @@ import {
 
 import './App.scss'
 
-import { Login } from './features/auth/Login'
-import { Register } from './features/auth/Register'
-
-import { Avatar } from './components/Avatar'
-import { GroupList } from './features/groups/GroupList'
+import { ProtectedRoute } from './components/ProtectedRoute'
+import { NotFound } from './components/NotFound'
+import { Layout } from './components/Layout'
 import { Home } from './components/Home'
+
+import { SignIn } from './features/auth/SignIn'
+import { SignUp } from './features/auth/SignUp'
 import { Profile } from './features/profile/Profile'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={
-          <div className="container vh-100 py-3">
-            <div className="row">
-              <div className="col-3 px-2">
-                <Avatar />
-                <div className="mb-3"></div>
-                <GroupList />
-              </div>
-              <div className="col-9">
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Layout>
                 <Home />
-              </div>
-            </div>
-          </div>
-        } />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
 export default App;
