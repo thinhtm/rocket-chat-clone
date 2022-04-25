@@ -19,6 +19,7 @@ a {
     bottom: -90px;
     border: 1px solid #dee2e6;
     z-index: 10;
+    width: 150px;
 
     button {
       border: none;
@@ -29,6 +30,15 @@ a {
         background-color: #f8f9fa;
       }
     }
+  }
+}
+
+.layout {
+  height: 100vh;
+
+  .left-pane {
+    height: 100vh;
+    background-color: #ECEFF1;
   }
 }
 
@@ -55,5 +65,20 @@ a {
     position: absolute;
     top: 20px;
     left: 20px;
+  }
+}
+
+.chat-container {
+  height: 100vh;
+
+  .header {
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .chat-pane {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
   }
 }

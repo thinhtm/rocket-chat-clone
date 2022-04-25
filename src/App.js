@@ -15,6 +15,8 @@ import { Home } from './components/Home'
 import { SignIn } from './features/auth/SignIn'
 import { SignUp } from './features/auth/SignUp'
 import { Profile } from './features/profile/Profile'
+import { NewGroup} from './features/group/NewGroup'
+import { ChatContainer } from './features/group/ChatContainer'
 
 function App() {
   return (
@@ -31,12 +33,31 @@ function App() {
               </Layout>
             </ProtectedRoute>
           }
-        />
+        >
+          <Route
+            path=":groupName"
+            element={
+              <ProtectedRoute>
+                <ChatContainer />
+              </ProtectedRoute>
+            }
+          />
+        </Route>
         <Route
           path="/profile"
           element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/create-group"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <NewGroup />
+              </Layout>
             </ProtectedRoute>
           }
         />

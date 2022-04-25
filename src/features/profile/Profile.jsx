@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import ProfileAPI from '../../api/profile.api'
-import { getProfile } from './profileSlice'
+import { getProfile, updateStatus } from './profileSlice'
 
 export const Profile = () => {
   const profileStatus = useSelector(state => state.profile.status)
@@ -24,6 +25,7 @@ export const Profile = () => {
   const onEmailChanged = e => setEmail(e.target.value)
 
   const goToHome = () => {
+    dispatch(updateStatus('idle'))
     navigate('/')
   }
 
@@ -36,6 +38,7 @@ export const Profile = () => {
       email
     }
     await ProfileAPI.updateProfile(profile.id, updatedProfile)
+    goToHome()
   }
 
   useEffect(() => {

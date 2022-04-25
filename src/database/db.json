@@ -1,12 +1,75 @@
 {
-  "users": [
+  "users": [],
+  "groups": [
     {
-      "password": "$2a$10$mauq.BAg.DpvRfD6RNF4tOdhK9v.mNhdH85jT0gw6TpIXtLQtKKS2",
-      "name": "John Connor",
-      "username": "johnc",
-      "bio": "Lorem ipsum dolor sit amet",
-      "email": "john@email.com",
-      "id": 1
+      "id": 1,
+      "name": "project_alpha",
+      "members": [],
+      "messages": []
+    },
+    {
+      "id": 2,
+      "name": "project_beta",
+      "members": [],
+      "messages": []
+    },
+    {
+      "id": 3,
+      "name": "project_creta",
+      "members": [],
+      "messages": []
+    },
+    {
+      "id": 4,
+      "name": "project_delta",
+      "members": [],
+      "messages": []
+    },
+    {
+      "name": "new_group",
+      "members": [],
+      "messages": [],
+      "id": 5
+    },
+    {
+      "name": "another_group",
+      "members": [
+        1
+      ],
+      "messages": [],
+      "id": 6
+    },
+    {
+      "name": "project_foxtrott",
+      "members": [
+        1
+      ],
+      "messages": [],
+      "id": 7
+    },
+    {
+      "name": "secret group",
+      "members": [
+        1
+      ],
+      "messages": [],
+      "id": 8
+    },
+    {
+      "name": "inbox",
+      "members": [
+        1
+      ],
+      "messages": [],
+      "id": 9
+    },
+    {
+      "name": "my_group",
+      "members": [
+        2
+      ],
+      "messages": [],
+      "id": 10
     }
   ]
 }

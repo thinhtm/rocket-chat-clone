@@ -6,7 +6,7 @@ import UserService from '../../common/user.service'
 const userId = UserService.getUserId()
 
 const initialState = {
-  status: 'idle',
+  status: 'idle', // idle, loading, succeeded
   data: {
     name: '',
     username: '',
@@ -26,7 +26,11 @@ export const getProfile = createAsyncThunk(
 const profileSlice = createSlice({
   name: 'profile',
   initialState,
-  reducers: {},
+  reducers: {
+    updateStatus(state, action) {
+      state.status = action.payload
+    }
+  },
   extraReducers(builder) {
     builder
       .addCase(getProfile.pending, (state, action) => {
@@ -39,6 +43,6 @@ const profileSlice = createSlice({
   }
 })
 
-export const { setProfile } = profileSlice.actions
+export const { updateStatus } = profileSlice.actions
 
 export default profileSlice.reducer
