@@ -3,16 +3,17 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
+import ProfileAPI from '../../api/profile.api'
 import { getProfile } from './profileSlice'
 
 export const Profile = () => {
-  const [name, setName] = useState('')
-  const [username, setUsername] = useState('')
-  const [bio, setBio] = useState('')
-  const [email, setEmail] = useState('')
-
   const profileStatus = useSelector(state => state.profile.status)
   const profile = useSelector(state => state.profile.data)
+
+  const [name, setName] = useState(profile.name)
+  const [username, setUsername] = useState(profile.username)
+  const [bio, setBio] = useState(profile.bio)
+  const [email, setEmail] = useState(profile.email)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -26,17 +27,25 @@ export const Profile = () => {
     navigate('/')
   }
 
-  const saveChanges = () => {
-    console.log(name)
-    console.log(username)
-    console.log(bio)
-    console.log(email)
+  const saveChanges = async () => {
+    const updatedProfile = {
+      password: profile.password,
+      name,
+      username,
+      bio,
+      email
+    }
+    await ProfileAPI.updateProfile(profile.id, updatedProfile)
   }
 
   useEffect(() => {
     if (profileStatus === 'idle') {
       dispatch(getProfile())
     }
+    setName(profile.name)
+    setUsername(profile.username)
+    setBio(profile.bio)
+    setEmail(profile.email)
   }, [profileStatus, dispatch])
 
   return (
@@ -46,21 +55,21 @@ export const Profile = () => {
       <input
         className="form-control mb-4"
         type="text"
-        value={profile.name}
+        value={name}
         onChange={onNameChanged}
       />
       <label className="form-label">Username</label>
       <input
         className="form-control mb-4"
         type="text"
-        value={profile.username}
+        value={username}
         onChange={onUsernameChanged}
       />
       <label className="form-label">Bio</label>
       <textarea
         className="form-control mb-4"
         type="text"
-        value={profile.bio}
+        value={bio}
         onChange={onBioChanged}
       />
       <label className="form-label">Email</label>
@@ -68,7 +77,7 @@ export const Profile = () => {
         className="form-control mb-5"
         type="email"
         placeholder="yourname@email.com"
-        value={profile.email}
+        value={email}
         onChange={onEmailChanged}
       />     
       <div className="d-flex justify-content-end">
