@@ -1,5 +1,30 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "john@email.com",
+      "password": "$2a$10$k2iF9Yt6SXYO2kzd8ddEB.rU7DOpOpUzOOrH3InaEyS6mpKN1YJRe",
+      "name": "",
+      "username": "",
+      "bio": "",
+      "id": 1
+    },
+    {
+      "email": "jack@email.com",
+      "password": "$2a$10$ixbZr..9rNma.9C0ZNOKRemtwXl1wxtNkt0PwKAqinWKg0yZJtAGe",
+      "name": "",
+      "username": "",
+      "bio": "",
+      "id": 2
+    },
+    {
+      "email": "jake@email.com",
+      "password": "$2a$10$KIOH02kXEqGR9t5QmomL6uVOjJ03wQH5pVEBv/7/SzJs3CTDwLCh2",
+      "name": "",
+      "username": "",
+      "bio": "",
+      "id": 3
+    }
+  ],
   "groups": [
     {
       "id": 1,
@@ -24,12 +49,6 @@
       "name": "project_delta",
       "members": [],
       "messages": []
-    },
-    {
-      "name": "new_group",
-      "members": [],
-      "messages": [],
-      "id": 5
     },
     {
       "name": "another_group",
@@ -58,7 +77,9 @@
     {
       "name": "inbox",
       "members": [
-        1
+        1,
+        2,
+        3
       ],
       "messages": [],
       "id": 9

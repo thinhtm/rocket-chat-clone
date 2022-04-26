@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 
 import { AddMember } from './AddMember'
+import { getGroupDataByName } from './groupSlice'
 
 export const ChatContainer = () => {
   const [isAddingMember, setIsAddingMember] = useState(false)
 
   const params = useParams()
+
+  const groupData = useSelector(
+    state => getGroupDataByName(state, params.groupName)
+  )
 
   const openAddMember = () => {
     setIsAddingMember(true)
@@ -37,7 +43,7 @@ export const ChatContainer = () => {
       </div>
       {
         isAddingMember ?
-        <AddMember />
+        <AddMember groupData={groupData} />
         :
         <div className="chat-pane px-3 pb-3">
           <div className="chat-content"></div>

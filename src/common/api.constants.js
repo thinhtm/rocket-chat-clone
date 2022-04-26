@@ -9,3 +9,6 @@ export const API_UPDATE_PROFILE = '/users/<user_id>'
 
 export const API_GROUPS = '/groups'
 export const API_CREATE_GROUP = '/groups'
+export const API_ADD_MEMBER = '/groups/<group_id>'
+
+export const API_USERS = '/users'

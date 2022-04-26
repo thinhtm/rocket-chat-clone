@@ -49,3 +49,12 @@ export const getUserGroups = (state) => {
   )
   return userGroups
 }
+
+export const getGroupDataByName = (state, groupName) => {
+  const allGroups = state.group.all
+
+  const group = allGroups.find(
+    group => group.name === groupName
+  )
+  return group
+}
