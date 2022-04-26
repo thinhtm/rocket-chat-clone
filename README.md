@@ -3,10 +3,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Features
-- Sign in, sign up\
-- Update profile\
-- Create group, add member to group\
-\
+- Sign in, sign up
+- Update profile
+- Create group, add member to group
+
 - Send messages (Coming soon)
 
 ## Available Scripts
